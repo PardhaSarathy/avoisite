@@ -16,34 +16,79 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Simple fade-in on scroll for sections
     const observerOptions = {
-        threshold: 0.1,
+        threshold: 0.1, // Trigger sooner for snappy feel
         rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Only animate once
             }
         });
     }, observerOptions);
 
-    // Apply fade-in to major sections
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
+    // Elements to animate
+    const animatedElements = document.querySelectorAll('section, .glow-card, .stat-item, .pipeline-step, .trust-bar, .booking-container');
+
+    animatedElements.forEach((el, index) => {
+        el.classList.add('fade-in-section');
+
+        // Auto-stagger siblings in grids
+        if (el.classList.contains('glow-card') || el.classList.contains('stat-item')) {
+            const siblingIndex = Array.from(el.parentNode.children).indexOf(el);
+            el.style.transitionDelay = `${(siblingIndex % 3) * 0.1}s`;
+        }
+
+        observer.observe(el);
     });
 
-    // Make hero visible immediately
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.opacity = '1';
-        hero.style.transform = 'translateY(0)';
+    // Mobile Navigation Toggle
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            mobileBtn.classList.toggle('active-toggle');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-active');
+                mobileBtn.classList.remove('active-toggle');
+            });
+        });
     }
+
+    // Splash Screen Sequence
+    const splash = document.getElementById('splash-screen');
+    const hero = document.querySelector('.hero');
+
+    if (splash) {
+        // Wait for page load + small buffer
+        setTimeout(() => {
+            splash.classList.add('splash-hidden');
+            // Trigger Hero Entrance
+            if (hero) hero.classList.add('hero-active');
+        }, 1800); // 1.8s hold time
+    } else {
+        // Fallback if no splash
+        if (hero) hero.classList.add('hero-active');
+    }
+    // Footer System Clock
+    function updateFooterClock() {
+        const timeElement = document.getElementById('footer-time');
+        if (timeElement) {
+            const now = new Date();
+            timeElement.textContent = now.toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+        }
+    }
+
+    // Initial call and interval
+    updateFooterClock();
+    setInterval(updateFooterClock, 1000);
 });

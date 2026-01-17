@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Discovery Call — AVOI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Specific Styles for Booking Page */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .booking-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .booking-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4aecff 0%, #4a90e2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .booking-subtitle {
+            font-size: 1.125rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Direct Uplink Styles */
+        .uplink-wrapper {
+            background: rgba(13, 13, 13, 0.8);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 12px;
+            padding: 3rem 4rem;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(74, 144, 226, 0.1);
+        }
+
+        .uplink-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .uplink-address {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .uplink-address:hover {
+            color: #4aecff;
+            text-shadow: 0 0 20px rgba(74, 236, 255, 0.4);
+            transform: scale(1.02);
+        }
+
+        .uplink-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(74, 236, 255, 0.1);
+            color: #4aecff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #4aecff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #4aecff;
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" style="text-decoration: none;">AVOI</a>
+            <div class="nav-links">
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#capabilities">Capabilities</a>
+                <a href="index.html#process">Process</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="booking-container">
+        <!-- Background Grid -->
+        <div class="grid-background"></div>
+
+        <div class="booking-header">
+            <h1 class="booking-title">Initialize Engagement</h1>
+            <p class="booking-subtitle">
+                Establish a direct line with our deployment architects. <br>
+                We analyze communication volume and outcome requirements.
+            </p>
+        </div>
+
+        <div class="uplink-wrapper">
+            <div class="uplink-label">SECURE TRANSMISSION LINE</div>
+
+            <a href="mailto:deploy@avoi.com" class="uplink-address">deploy@avoi.com</a>
+
+            <div class="uplink-footer">
+                <div class="uplink-status">
+                    <span class="status-dot"></span>
+                    CHANNEL OPEN: <span id="current-time">00:00:00 UTC</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Update UTC time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toISOString().split('T')[1].split('.')[0] + ' UTC';
+            document.getElementById('current-time').textContent = timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+
+</html>

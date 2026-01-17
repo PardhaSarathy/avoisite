@@ -45,6 +45,39 @@ body::before {
 }
 
 /* ===================================
+   SCROLL MOTION UTILITIES
+   =================================== */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(15px);
+    /* Tighter movement */
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delays for Grid Items */
+.stagger-1 {
+    transition-delay: 0.1s;
+}
+
+.stagger-2 {
+    transition-delay: 0.2s;
+}
+
+.stagger-3 {
+    transition-delay: 0.3s;
+}
+
+.stagger-4 {
+    transition-delay: 0.4s;
+}
+
+/* ===================================
    TYPOGRAPHY
    =================================== */
 
@@ -152,11 +185,27 @@ p {
     align-items: center;
 }
 
-.nav-logo {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #ffffff;
+.nav-links .btn-primary-small {
+    /* Specific selector to override generic button styles */
+    background: rgba(74, 144, 226, 0.1) !important;
+    border: 1px solid rgba(74, 236, 255, 0.5) !important;
+    color: #4aecff !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
     letter-spacing: 0.05em;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 0 10px rgba(74, 236, 255, 0.1);
+}
+
+.nav-links .btn-primary-small:hover {
+    background: rgba(74, 236, 255, 0.15) !important;
+    border-color: #4aecff !important;
+    box-shadow: 0 0 20px rgba(74, 236, 255, 0.3), inset 0 0 10px rgba(74, 236, 255, 0.1);
+    transform: translateY(-1px);
+    color: #ffffff !important;
 }
 
 .nav-links {
@@ -183,15 +232,26 @@ p {
 
 .btn-primary,
 .btn-primary-large,
-.btn-primary-small,
-.btn-secondary {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s ease;
-    cursor: pointer;
-    border: none;
-    font-family: 'Inter', sans-serif;
+.btn-primary-small {
+    background: rgba(74, 144, 226, 0.1);
+    border: 1px solid rgba(74, 236, 255, 0.5);
+    color: #4aecff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 0 10px rgba(74, 236, 255, 0.1);
+}
+
+.btn-primary-small:hover {
+    background: rgba(74, 236, 255, 0.15);
+    border-color: #4aecff;
+    box-shadow: 0 0 20px rgba(74, 236, 255, 0.3), inset 0 0 10px rgba(74, 236, 255, 0.1);
+    transform: translateY(-1px);
+    color: #ffffff;
 }
 
 .btn-primary,
@@ -232,9 +292,7 @@ p {
     opacity: 0.85;
 }
 
-/* ===================================
-   HERO SECTION — LARGE STATEMENT
-   =================================== */
+
 
 /* ===================================
    HERO SECTION — COMMAND CENTER
@@ -246,6 +304,155 @@ p {
     position: relative;
     /* Central Energy Source Glow */
     background: radial-gradient(circle at 50% 40%, rgba(74, 144, 226, 0.15) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Contain the massive text */
+}
+
+/* Infrastructure Stack: The Heavy Industry Look */
+.infra-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.85;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.infra-block {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 13vw;
+    /* Massive viewport-based sizing */
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
+    /* Structural outline */
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    position: relative;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.infra-block:nth-child(2) {
+    /* "VOICE" - The Active Layer */
+    color: #fff;
+    -webkit-text-stroke: 0;
+    text-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
+}
+
+.infra-block::after {
+    /* Industrial Label */
+    content: attr(data-label);
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #4a90e2;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+
+/* ===================================
+   SPLASH SCREEN / GLANCE PAGE
+   =================================== */
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #050505;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
+}
+
+#splash-screen.splash-hidden {
+    transform: translateY(-100%);
+    opacity: 1;
+    /* Visible slide up */
+    pointer-events: none;
+}
+
+/* Hero Entrance Animation Removed */
+
+/* Staggered Directional Entrances */
+.splash-stack {
+    opacity: 1;
+    /* Container is visible immediately to let children animate */
+}
+
+/* 1. AVOI: Left to Right */
+.splash-stack .infra-block:nth-child(1) {
+    opacity: 0;
+    animation: slide-in-left 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.1s;
+}
+
+/* 2. VOICE: Right to Left */
+.splash-stack .infra-block:nth-child(2) {
+    opacity: 0;
+    animation: slide-in-right 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+/* 3. INFRA: Bottom to Top */
+.splash-stack .infra-block:nth-child(3) {
+    opacity: 0;
+    animation: slide-in-up 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.5s;
+}
+
+/* Keyframes */
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-status-pill {
@@ -264,6 +471,9 @@ p {
     letter-spacing: 0.05em;
     margin-bottom: 2rem;
     box-shadow: 0 0 15px rgba(74, 144, 226, 0.2);
+    position: relative;
+    /* Ensure it sits above the block */
+    z-index: 2;
 }
 
 .hero-status-dot {
@@ -294,11 +504,104 @@ p {
 
 .hero-title {
     margin-bottom: 2rem;
-    font-size: 4rem;
-    /* Larger, more impactful */
+    font-size: 4.5rem;
+    /* Slightly larger for impact */
     line-height: 1.1;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* ===================================
+   TRUST BAR (Live Signal)
+   =================================== */
+.trust-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #050505;
+    padding: 1rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 1rem 2rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.live-indicator {
+    color: #4aecff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+}
+
+.blink-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #4aecff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #4aecff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.trust-ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.trust-ticker-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: ticker-scroll 30s linear infinite;
+    padding: 0.5rem 0;
+}
+
+.ticker-item {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+.ticker-item:hover {
+    color: #4aecff;
+    text-shadow: 0 0 10px rgba(74, 236, 255, 0.3);
+}
+
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Scrolls half width (assuming duplicated content) */
+}
+
+/* Utilities */
 .text-gradient {
     background: linear-gradient(135deg, #4aecff 0%, #4a90e2 100%);
     background-clip: text;
@@ -640,7 +943,7 @@ p {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -915,6 +1218,410 @@ p {
    PRICING SECTION — COMPACT DOCUMENTATION
    =================================== */
 
+/* ===================================
+   TRANSFORMATION PIPELINE — CINEMATIC CORE
+   =================================== */
+
+.section-comparison {
+    padding: 8rem 0;
+    background-color: #050505;
+    background-image: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0.5) 0%, #050505 70%);
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Centered Section Title */
+.section-title-center {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+.section-meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #4a90e2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    font-weight: 700;
+    /* Thicker as requested */
+}
+
+.pipeline-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 4rem auto 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Connectors (The Pipe) */
+.pipeline-track {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: rgba(74, 144, 226, 0.1);
+    z-index: 0;
+}
+
+/* Particle Flow Animation */
+.pipeline-particle {
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4aecff, transparent);
+    z-index: 1;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px #4aecff);
+    animation: flow-packet 4s infinite linear;
+}
+
+.particle-1 {
+    animation-delay: 0s;
+    left: 15%;
+}
+
+.particle-2 {
+    animation-delay: 2s;
+    left: 15%;
+}
+
+/* ZONE 1: CHAOS (Input) */
+.zone-noise {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-end;
+    width: 28%;
+    position: relative;
+    z-index: 2;
+}
+
+.noise-card {
+    background: rgba(20, 10, 10, 0.6);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-right: 3px solid rgba(239, 68, 68, 0.5);
+    padding: 1rem 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    /* Reduced font size */
+    color: #ef4444;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    /* Increased spacing */
+    backdrop-filter: blur(4px);
+    width: 100%;
+    text-align: right;
+    position: relative;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px);
+    transition: all 0.15s ease-out;
+}
+
+.noise-card:hover {
+    background: rgba(239, 68, 68, 0.1);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.6);
+}
+
+/* ZONE 2: REACTOR (Core) */
+.zone-core {
+    width: 440px;
+    /* Wider for effects */
+    height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* The Reactor Assembly */
+.reactor-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(74, 144, 226, 0.1);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.05);
+}
+
+.ring-outer {
+    width: 320px;
+    height: 320px;
+    border: 1px dashed rgba(74, 144, 226, 0.3);
+    animation: spin-slow 20s linear infinite;
+}
+
+.ring-mid {
+    width: 240px;
+    height: 240px;
+    border: 2px solid rgba(74, 144, 226, 0.4);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    animation: spin-fast 8s linear infinite reverse;
+}
+
+.ring-inner {
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+    border: 1px solid rgba(74, 226, 255, 0.3);
+    box-shadow: 0 0 30px rgba(74, 144, 226, 0.2);
+    animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.reactor-core {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 60px #4aecff, 0 0 100px rgba(74, 144, 226, 0.6);
+    position: relative;
+    z-index: 10;
+    animation: core-flicker 4s infinite;
+}
+
+.core-label-box {
+    position: absolute;
+    bottom: 40px;
+    background: rgba(13, 13, 13, 0.9);
+    border: 1px solid #4a90e2;
+    padding: 0.5rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #4aecff;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+    z-index: 11;
+}
+
+/* ZONE 3: SIGNAL (Output) */
+.zone-signal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    width: 28%;
+    position: relative;
+    z-index: 2;
+}
+
+.signal-plate {
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.8) 0%, rgba(30, 30, 40, 0.9) 100%);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-left: 4px solid #4aecff;
+    padding: 1.25rem;
+    width: 100%;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.signal-plate:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 0 25px rgba(74, 144, 226, 0.15);
+    border-color: #4aecff;
+}
+
+.signal-plate h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.signal-plate p {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: #94a3b8;
+}
+
+/* Headers */
+.zone-label {
+    position: absolute;
+    top: -4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.label-left {
+    right: 0;
+    text-align: right;
+    color: #ef4444;
+}
+
+.label-right {
+    left: 0;
+    text-align: left;
+    color: #4aecff;
+}
+
+/* Keyframes */
+@keyframes spin-slow {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-fast {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse-ring {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes core-flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 0.9;
+    }
+
+    96% {
+        opacity: 0.6;
+    }
+
+    97% {
+        opacity: 1;
+    }
+}
+
+@keyframes flow-packet {
+    0% {
+        left: 15%;
+        opacity: 0;
+        width: 20px;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    45% {
+        width: 100px;
+    }
+
+    50% {
+        left: 50%;
+        opacity: 0;
+        width: 0;
+    }
+
+    /* Disappear at core */
+    51% {
+        left: 50%;
+        opacity: 0;
+        width: 0;
+    }
+
+    55% {
+        opacity: 1;
+        width: 20px;
+    }
+
+    90% {
+        width: 100px;
+        opacity: 1;
+    }
+
+    100% {
+        left: 85%;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .pipeline-container {
+        flex-direction: column;
+        gap: 4rem;
+        margin-top: 4rem;
+    }
+
+    .zone-noise,
+    .zone-signal {
+        width: 90%;
+        align-items: center;
+    }
+
+    .noise-card {
+        text-align: center;
+        clip-path: none;
+        border-right: 1px solid rgba(239, 68, 68, 0.2);
+        border-bottom: 3px solid rgba(239, 68, 68, 0.5);
+    }
+
+    .signal-plate {
+        border-left: 1px solid rgba(74, 144, 226, 0.3);
+        border-top: 4px solid #4aecff;
+        clip-path: none;
+        text-align: center;
+    }
+
+    .valve-track,
+    .pipeline-particle {
+        display: none;
+    }
+
+    .zone-core {
+        height: 300px;
+        width: 300px;
+    }
+
+    .ring-outer {
+        width: 260px;
+        height: 260px;
+    }
+
+    .ring-mid {
+        width: 180px;
+        height: 180px;
+    }
+
+    .ring-inner {
+        width: 120px;
+        height: 120px;
+    }
+
+    .zone-label {
+        display: none;
+    }
+}
+
 .section-pricing {
     padding: 6rem 0;
     background-color: #0d0d0d;
@@ -1032,9 +1739,7 @@ p {
         align-items: stretch;
     }
 
-    .nav-links {
-        display: none;
-    }
+
 
     .split-layout {
         grid-template-columns: 1fr;
@@ -1106,5 +1811,570 @@ p {
     .footer-links {
         flex-direction: column;
         gap: 0.75rem;
+    }
+}
+
+/* ===================================
+   GRAND FINALE — THE ROI ENGINE
+   =================================== */
+
+.section-finale {
+    padding: 8rem 0 10rem;
+    background-color: #030303;
+    background-image: radial-gradient(circle at 50% 0%, rgba(20, 20, 30, 0.5) 0%, #030303 70%);
+    border-top: 1px solid #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+.finale-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 0 2rem;
+}
+
+.finale-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Split screen */
+    gap: 6rem;
+    align-items: center;
+}
+
+/* Left Column: Logic */
+.finale-logic {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle divider */
+    padding-right: 4rem;
+}
+
+.finale-headline {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.finale-subhead {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.roi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.roi-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #b0b0b0;
+}
+
+.roi-icon {
+    color: #4aecff;
+}
+
+/* Right Column: Action */
+.finale-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.deployment-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #2ecc71;
+    /* Success Green */
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+}
+
+.deployment-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #2ecc71;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2ecc71;
+    animation: pulse-green 2s infinite;
+}
+
+.btn-primary-large {
+    background: #4aecff;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 1.25rem 3rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(74, 236, 255, 0.3);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.btn-primary-large:hover {
+    background: #fff;
+    box-shadow: 0 0 50px rgba(74, 236, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.action-note {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+@keyframes pulse-green {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 900px) {
+    .finale-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .finale-logic {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 4rem;
+    }
+
+    .roi-item {
+        justify-content: center;
+    }
+
+    .finale-action {
+        align-items: center;
+    }
+}
+
+/* ===================================
+   INDUSTRIAL FOOTER
+   =================================== */
+
+.footer-industrial {
+    background-color: #050505;
+    border-top: 1px solid #1a1a1a;
+    padding-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Status Line (Top) */
+.footer-status-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #4a90e2;
+    border-bottom: 1px solid #1a1a1a;
+    background: #080808;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #ef4444;
+    /* End of Line Red/Orange or System Blue? Blue fits better. */
+    background: #4aecff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #4aecff;
+}
+
+.status-line-fill {
+    flex-grow: 1;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, #1a1a1a, #1a1a1a 4px, transparent 4px, transparent 8px);
+}
+
+.status-coord {
+    opacity: 0.5;
+}
+
+/* Main Grid */
+.footer-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 6rem 0;
+    align-items: start;
+}
+
+/* Brand Section (Giant Logo) */
+.footer-giant-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 10rem;
+    /* Massive */
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    background: linear-gradient(180deg, #fff 0%, #333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    margin-left: -0.5rem;
+    /* Optical alignment */
+}
+
+.footer-tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: #888;
+    max-width: 300px;
+}
+
+/* Navigation Grid */
+.footer-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #4aecff;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.footer-col a {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    color: #888;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #fff;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid #1a1a1a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #444;
+    text-transform: uppercase;
+}
+
+.server-time {
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .footer-main-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-giant-logo {
+        font-size: 5rem;
+    }
+
+    .footer-nav-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ===================================
+   MAGNETIC ASSEMBLY (Keyframes)
+   =================================== */
+
+/* Keyframes for Scatter Entrance */
+@keyframes fly-in-left {
+    0% {
+        opacity: 0;
+        transform: translate(-100px, 100px) rotate(-5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes fly-in-center {
+    0% {
+        opacity: 0;
+        transform: translateY(120px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fly-in-right {
+    0% {
+        opacity: 0;
+        transform: translate(100px, 100px) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Apply Animations when Visible */
+.glow-grid .glow-card.is-visible {
+    /* Override generic transition for the entrance phase if needed, 
+       but animation runs on top. */
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-fill-mode: backwards;
+    /* 'backwards' ensures initial state is hidden before start, 
+       but releases control after end so hover works */
+}
+
+/* Hardcoded Stagger for smoother effect independent of JS loop */
+.glow-grid .glow-card:nth-child(1).is-visible {
+    animation-name: fly-in-left;
+    animation-delay: 0.1s;
+}
+
+.glow-grid .glow-card:nth-child(2).is-visible {
+    animation-name: fly-in-center;
+    animation-delay: 0.2s;
+}
+
+.glow-grid .glow-card:nth-child(3).is-visible {
+    animation-name: fly-in-right;
+    animation-delay: 0.3s;
+}
+
+/* ===================================
+   RESPONSIVE OVERHAUL (Mobile/Tablet)
+   =================================== */
+
+/* Hide Mobile Button on Desktop */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10001;
+    /* Above Splash/Nav */
+}
+
+.mobile-menu-btn .bar {
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* TABLET & MOBILE (Max Width: 1024px) */
+@media (max-width: 1024px) {
+    .container-wide {
+        padding: 0 2rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .pipeline-container {
+        gap: 2rem;
+    }
+}
+
+/* MOBILE LANDSCAPE / SMALL TABLET (Max Width: 768px) */
+@media (max-width: 768px) {
+
+    /* Navigation: Mobile Overlay */
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        display: flex;
+        /* Force flex display */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 10000;
+        transform: translateY(-100%);
+        /* Slide down */
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+        /* Click through when hidden */
+    }
+
+    .nav-links.nav-active {
+        transform: translateY(0);
+        pointer-events: all;
+    }
+
+    .active-toggle .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .active-toggle .bar:nth-child(2) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 2.5rem;
+        /* Readable on mobile */
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .btn-glow,
+    .btn-secondary-glow {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Trust Bar */
+    .trust-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Transformation Pipeline */
+    .pipeline-container {
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+
+    .pipeline-arrow {
+        transform: rotate(90deg);
+        /* Point down */
+        margin: 1rem 0;
+    }
+
+    /* Grids (Control & Footer) */
+    .glow-grid {
+        grid-template-columns: 1fr;
+        /* Stack cards */
+        gap: 2rem;
+    }
+
+    .footer-main-grid {
+        grid-template-columns: 1fr;
+        padding: 4rem 0;
+    }
+
+    .footer-nav-grid {
+        grid-template-columns: 1fr;
+        /* Stack links */
+        gap: 2rem;
+    }
+
+    .footer-giant-logo {
+        font-size: 4rem;
+        /* Scale down giant text */
+        margin-left: 0;
+    }
+
+    /* Card Motion Reset for Mobile */
+    /* Simplify scatter animation to avoid overflow/confusion on small screens */
+    .glow-grid .glow-card:not(.is-visible) {
+        /* Simple fade up instead of complex scatter */
+        transform: translateY(30px) !important;
+    }
+
+    @keyframes fly-in-mobile {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .glow-grid .glow-card.is-visible {
+        animation-name: fly-in-mobile !important;
+        animation-duration: 0.6s !important;
+        animation-delay: 0s !important;
+        /* No stagger to load faster? Or keep stagger */
+    }
+
+    /* Splash Screen */
+    .infra-stack {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .infra-block {
+        font-size: 3rem;
     }
 }

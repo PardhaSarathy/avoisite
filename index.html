@@ -34,29 +34,36 @@
                 <a href="#how-it-works">How It Works</a>
                 <a href="#capabilities">Capabilities</a>
                 <a href="#process">Process</a>
-                <a href="#contact" class="btn-primary-small">Book Discovery Call</a>
+                <a href="booking.html" class="btn-primary-small">Book Discovery Call</a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container-narrow">
-            <!-- System Status Badge -->
-            <div class="hero-status-pill">
-                <span class="hero-status-dot"></span>
-                System Operational
-            </div>
+    <!-- Glance Page / Splash Screen -->
+    <div id="splash-screen">
+        <div class="infra-stack splash-stack">
+            <div class="infra-block" data-label="SYSTEM">AVOI</div>
+            <div class="infra-block" data-label="MEDIUM">VOICE</div>
+            <div class="infra-block" data-label="CATEGORY">INFRA</div>
+        </div>
+    </div>
 
+    <header class="hero">
+        <div class="container-wide">
             <!-- Gradient Headline -->
-            <h1 class="hero-title">The Operating System for<br><span class="text-gradient">Voice Intelligence</span>
-            </h1>
+            <h1 class="hero-title">The Operating System for <span class="text-gradient">Voice Intelligence</span></h1>
 
             <p class="hero-subtitle">Turn disconnected calls into structured data. Automate complex workflows, support
                 triage, and customer operations with infrastructure that feels alive.</p>
 
             <div class="hero-cta">
-                <a href="#book" class="btn-glow">Deploy Agents</a>
+                <a href="booking.html" class="btn-glow">Deploy Agents</a>
                 <a href="#how-it-works" class="btn-secondary-glow">See Architecture</a>
             </div>
 
@@ -64,85 +71,87 @@
         </div>
     </header>
 
-    <!-- Trust Bar -->
+    <!-- Trust Bar: Live Signal -->
     <section class="trust-bar">
-        <div class="container">
-            <p class="trust-headline">Trusted for mission-critical communication operations</p>
-            <div class="trust-metrics">
-                <span>99.5% uptime SLA</span>
-                <span>Sub-2s response time</span>
-                <span>Multi-language support</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="section-split">
         <div class="container-wide">
-            <div class="split-layout">
-                <div class="split-left">
-                    <h2>Your Phone Is Costing You Money</h2>
-                </div>
-                <div class="split-right">
-                    <p class="lead">Every missed call is lost revenue, lost trust, and operational chaos.</p>
-                    <ul class="problem-list">
-                        <li>Calls go unanswered during peak hours</li>
-                        <li>Teams are overloaded with repetitive questions</li>
-                        <li>Customers abandon when no one answers</li>
-                        <li>Revenue leaks silently through missed conversations</li>
-                    </ul>
-                    <p class="statement">You didn't build a business to answer<br>"What time do you close?" hundreds of
-                        times a day.</p>
+            <div class="trust-header">
+                <span class="trust-label">Operational Partners</span>
+                <span class="live-indicator"><span class="blink-dot"></span>LIVE SIGNAL</span>
+            </div>
+
+            <div class="trust-ticker-wrap">
+                <div class="trust-ticker-track">
+                    <!-- Set 1 -->
+                    <div class="ticker-item">AEROSPACE_DIV</div>
+                    <div class="ticker-item">CYBER_CMD</div>
+                    <div class="ticker-item">NAVAL_INTEL</div>
+                    <div class="ticker-item">GLOBAL_LOGISTICS</div>
+                    <div class="ticker-item">FIN_PRIME</div>
+                    <div class="ticker-item">ENERGY_GRID</div>
+                    <div class="ticker-item">CIVIL_DEFENSE</div>
+                    <div class="ticker-item">STRAT_COM</div>
+
+                    <!-- Set 2 (Duplicate for Loop) -->
+                    <div class="ticker-item">AEROSPACE_DIV</div>
+                    <div class="ticker-item">CYBER_CMD</div>
+                    <div class="ticker-item">NAVAL_INTEL</div>
+                    <div class="ticker-item">GLOBAL_LOGISTICS</div>
+                    <div class="ticker-item">FIN_PRIME</div>
+                    <div class="ticker-item">ENERGY_GRID</div>
+                    <div class="ticker-item">CIVIL_DEFENSE</div>
+                    <div class="ticker-item">STRAT_COM</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Solutions Fail -->
-    <section class="section-framed">
-        <div class="container-narrow">
-            <h2>Why Traditional Solutions Break</h2>
-            <p class="lead">Software isn't the problem. Ownership is.</p>
-            <div class="failure-grid">
-                <div class="failure-item">
-                    <span class="failure-icon">✕</span>
-                    <p>Hiring more staff is expensive and inconsistent</p>
+    <!-- Transformation Pipeline: Cinematic Core -->
+    <section class="section-comparison" id="how-it-works">
+        <div class="container-wide">
+            <div class="section-meta-label">The Transformation</div>
+            <h2 class="section-title-center">From Noise to Intelligence</h2>
+
+            <div class="pipeline-container">
+                <!-- Connectors & Particles -->
+                <div class="pipeline-track"></div>
+                <div class="pipeline-particle particle-1"></div>
+                <div class="pipeline-particle particle-2"></div>
+
+                <!-- Zone 1: Chaos (Input) -->
+                <div class="zone-noise">
+                    <div class="zone-label label-left">Manual Input</div>
+                    <div class="noise-card">Missed Revenue</div>
+                    <div class="noise-card">"Please Hold..."</div>
+                    <div class="noise-card">Staff Burnout</div>
+                    <div class="noise-card">Zero Data</div>
                 </div>
-                <div class="failure-item">
-                    <span class="failure-icon">✕</span>
-                    <p>DIY chatbots fail in real conversations</p>
+
+                <!-- Zone 2: Reactor (Core) -->
+                <div class="zone-core">
+                    <div class="reactor-ring ring-outer"></div>
+                    <div class="reactor-ring ring-mid"></div>
+                    <div class="reactor-ring ring-inner"></div>
+                    <div class="reactor-core"></div>
+                    <div class="core-label-box">AVOI CORE ACTIVE</div>
                 </div>
-                <div class="failure-item">
-                    <span class="failure-icon">✕</span>
-                    <p>Call centers lack business context</p>
+
+                <!-- Zone 3: Signal (Output) -->
+                <div class="zone-signal">
+                    <div class="zone-label label-right">Automated Output</div>
+                    <div class="signal-plate">
+                        <h4>Revenue Captured</h4>
+                        <p>Every call converted.</p>
+                    </div>
+                    <div class="signal-plate">
+                        <h4>Instant Resolution</h4>
+                        <p>Zero wait times, 24/7.</p>
+                    </div>
+                    <div class="signal-plate">
+                        <h4>Perfect Insights</h4>
+                        <p>Structured data ownership.</p>
+                    </div>
                 </div>
             </div>
-            <p class="statement-center">You don't need another tool to manage.<br>You need a partner who owns the
-                outcome.</p>
-        </div>
-    </section>
-
-    <!-- Solution Model -->
-    <section class="section-solution" id="how-it-works">
-        <div class="container-narrow">
-            <h2>AVOI: Managed Voice Infrastructure</h2>
-            <p class="lead">AVOI becomes your communication operations team.</p>
-
-            <div class="flow-diagram">
-                <div class="flow-step">Customer</div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step flow-highlight">AVOI Voice Layer</div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">Resolution</div>
-            </div>
-
-            <ul class="solution-list">
-                <li>We answer every call</li>
-                <li>We handle orders, bookings, and FAQs</li>
-                <li>We escalate only when human judgment is required</li>
-            </ul>
-
-            <p class="statement-center">You define the rules.<br>We execute flawlessly.</p>
         </div>
     </section>
 
@@ -200,8 +209,8 @@
                 <div class="glow-card">
                     <div class="glow-icon">
                         <!-- Sliders Icon for "You Define" -->
-                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#icon-glow-gradient)" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#4aecff" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
                             <path d="M4 21v-7"></path>
                             <path d="M4 10V3"></path>
                             <path d="M12 21v-9"></path>
@@ -226,8 +235,8 @@
                 <div class="glow-card">
                     <div class="glow-icon">
                         <!-- Eye Icon for "You See Everything" -->
-                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#icon-glow-gradient)" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#4aecff" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                             <circle cx="12" cy="12" r="3"></circle>
                         </svg>
@@ -245,8 +254,8 @@
                 <div class="glow-card">
                     <div class="glow-icon">
                         <!-- Lightning Icon for "You Change Anything" -->
-                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#icon-glow-gradient)" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#4aecff" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                         </svg>
                     </div>
@@ -329,43 +338,84 @@
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="section-pricing">
-        <div class="container-narrow">
-            <h2>Pricing Built for ROI</h2>
-            <p class="lead">Pay for capacity, not complexity.</p>
+    <!-- Grand Finale: The ROI Engine -->
+    <section class="section-finale" id="contact">
+        <div class="finale-container">
+            <div class="finale-grid">
+                <!-- Left: Pricing Logic (ROI) -->
+                <div class="finale-logic">
+                    <h2 class="finale-headline">Capacity,<br>Not Complexity.</h2>
+                    <p class="finale-subhead">Pay for volume. Scale instantly. No hidden fees.</p>
+                    <div class="roi-list">
+                        <div class="roi-item">
+                            <span class="roi-icon">✓</span>
+                            <span>Zero setup fees</span>
+                        </div>
+                        <div class="roi-item">
+                            <span class="roi-icon">✓</span>
+                            <span>No maintenance costs</span>
+                        </div>
+                        <div class="roi-item">
+                            <span class="roi-icon">✓</span>
+                            <span>Unlimited concurrent calls</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="pricing-factors">
-                <p>Pricing is based on:</p>
-                <ul>
-                    <li>Call volume</li>
-                    <li>Workflow depth</li>
-                    <li>Integration requirements</li>
-                </ul>
+                <!-- Right: Action (Deploy) -->
+                <div class="finale-action">
+                    <div class="deployment-status">Deployment Team: Standby</div>
+                    <a href="mailto:hello@avoi.com" class="btn-primary-large">Book Discovery Call</a>
+                    <p class="action-note">Ready to eliminate missed conversations?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer: Industrial End-State -->
+    <footer class="footer-industrial">
+        <div class="footer-status-line">
+            <span class="status-dot"></span>
+            <span class="status-text">SYSTEM END OF LINE</span>
+            <span class="status-line-fill"></span>
+            <span class="status-coord">34.0522° N, 118.2437° W</span>
+        </div>
+
+        <div class="container-wide">
+            <div class="footer-main-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand-section">
+                    <h2 class="footer-giant-logo">AVOI</h2>
+                    <p class="footer-tagline">Agentic Voice Operations Infrastructure</p>
+                </div>
+
+                <!-- Navigation Columns -->
+                <div class="footer-nav-grid">
+                    <div class="footer-col">
+                        <h4>System</h4>
+                        <a href="#how-it-works">Architecture</a>
+                        <a href="#capabilities">Capabilities</a>
+                        <a href="#process">Protocol</a>
+                        <a href="booking.html">Deploy</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">SLA</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="mailto:deploy@avoi.com">deploy@avoi.com</a>
+                        <a href="#">Twitter/X</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
             </div>
 
-            <p class="statement-center">The cost of AVOI is always lower than the revenue it protects.</p>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="section-cta" id="contact">
-        <div class="container-narrow">
-            <h2>Ready to Eliminate Missed Conversations?</h2>
-            <p class="lead">If communication creates pressure in your business,<br>AVOI is built to own it.</p>
-            <a href="mailto:hello@avoi.com" class="btn-primary-large">Book a Discovery Call</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-brand">AVOI — Agentic Voice & Vision Operations Infrastructure</p>
-            <p class="footer-copyright">© 2026 AVOI. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="mailto:hello@avoi.com">Contact</a>
-                <a href="#privacy">Privacy</a>
-                <a href="#security">Security</a>
+            <div class="footer-bottom-bar">
+                <span class="copyright">© 2026 AVOI SYSTEMS. ALL RIGHTS RESERVED.</span>
+                <span class="server-time">SERVER TIME: <span id="footer-time">UTC</span></span>
             </div>
         </div>
     </footer>
