@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rajdhani:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -29,7 +29,7 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <div class="nav-logo">AVOI</div>
+            <div class="nav-logo">&Lambda;VOI</div>
             <div class="nav-links">
                 <a href="#how-it-works">How It Works</a>
                 <a href="#capabilities">Capabilities</a>
@@ -48,16 +48,18 @@
     <!-- Glance Page / Splash Screen -->
     <div id="splash-screen">
         <div class="infra-stack splash-stack">
-            <div class="infra-block" data-label="SYSTEM">AVOI</div>
+            <div class="infra-block" data-label="SYSTEM">&Lambda;VOI</div>
             <div class="infra-block" data-label="MEDIUM">VOICE</div>
             <div class="infra-block" data-label="CATEGORY">INFRA</div>
         </div>
     </div>
 
     <header class="hero">
+        <canvas id="hero-canvas"></canvas>
         <div class="container-wide">
             <!-- Gradient Headline -->
-            <h1 class="hero-title">The Operating System for <span class="text-gradient">Voice Intelligence</span></h1>
+            <h1 class="hero-title">The Operating System for <br><span class="text-gradient">Voice Intelligence</span>
+            </h1>
 
             <p class="hero-subtitle">Turn disconnected calls into structured data. Automate complex workflows, support
                 triage, and customer operations with infrastructure that feels alive.</p>
@@ -75,31 +77,31 @@
     <section class="trust-bar">
         <div class="container-wide">
             <div class="trust-header">
-                <span class="trust-label">Operational Partners</span>
+                <span class="trust-label">Operational Standards</span>
                 <span class="live-indicator"><span class="blink-dot"></span>LIVE SIGNAL</span>
             </div>
 
             <div class="trust-ticker-wrap">
                 <div class="trust-ticker-track">
                     <!-- Set 1 -->
-                    <div class="ticker-item">AEROSPACE_DIV</div>
-                    <div class="ticker-item">CYBER_CMD</div>
-                    <div class="ticker-item">NAVAL_INTEL</div>
-                    <div class="ticker-item">GLOBAL_LOGISTICS</div>
-                    <div class="ticker-item">FIN_PRIME</div>
-                    <div class="ticker-item">ENERGY_GRID</div>
-                    <div class="ticker-item">CIVIL_DEFENSE</div>
-                    <div class="ticker-item">STRAT_COM</div>
+                    <div class="ticker-item">SUB_500MS_RESPONSE</div>
+                    <div class="ticker-item">INFINITE_CONCURRENCY</div>
+                    <div class="ticker-item">FULL_CONTEXT_AWARENESS</div>
+                    <div class="ticker-item">NATIVE_CRM_INTEGRATION</div>
+                    <div class="ticker-item">99.99%_UPTIME_SLA</div>
+                    <div class="ticker-item">REAL_TIME_ORCHESTRATION</div>
+                    <div class="ticker-item">ZERO_PACKET_LOSS</div>
+                    <div class="ticker-item">AUTONOMOUS_HANDOFF</div>
 
                     <!-- Set 2 (Duplicate for Loop) -->
-                    <div class="ticker-item">AEROSPACE_DIV</div>
-                    <div class="ticker-item">CYBER_CMD</div>
-                    <div class="ticker-item">NAVAL_INTEL</div>
-                    <div class="ticker-item">GLOBAL_LOGISTICS</div>
-                    <div class="ticker-item">FIN_PRIME</div>
-                    <div class="ticker-item">ENERGY_GRID</div>
-                    <div class="ticker-item">CIVIL_DEFENSE</div>
-                    <div class="ticker-item">STRAT_COM</div>
+                    <div class="ticker-item">SUB_500MS_RESPONSE</div>
+                    <div class="ticker-item">INFINITE_CONCURRENCY</div>
+                    <div class="ticker-item">FULL_CONTEXT_AWARENESS</div>
+                    <div class="ticker-item">NATIVE_CRM_INTEGRATION</div>
+                    <div class="ticker-item">99.99%_UPTIME_SLA</div>
+                    <div class="ticker-item">REAL_TIME_ORCHESTRATION</div>
+                    <div class="ticker-item">ZERO_PACKET_LOSS</div>
+                    <div class="ticker-item">AUTONOMOUS_HANDOFF</div>
                 </div>
             </div>
         </div>
@@ -123,7 +125,7 @@
                     <div class="noise-card">Missed Revenue</div>
                     <div class="noise-card">"Please Hold..."</div>
                     <div class="noise-card">Staff Burnout</div>
-                    <div class="noise-card">Zero Data</div>
+                    <div class="noise-card">Zero Structured Data</div>
                 </div>
 
                 <!-- Zone 2: Reactor (Core) -->
@@ -132,7 +134,7 @@
                     <div class="reactor-ring ring-mid"></div>
                     <div class="reactor-ring ring-inner"></div>
                     <div class="reactor-core"></div>
-                    <div class="core-label-box">AVOI CORE ACTIVE</div>
+                    <div class="core-label-box">&Lambda;VOI CORE ACTIVE</div>
                 </div>
 
                 <!-- Zone 3: Signal (Output) -->
@@ -293,7 +295,7 @@
                 <p class="stat-desc">Teams freed from repetitive support work.</p>
             </div>
         </div>
-        <p class="statement-center">AVOI doesn't promise features.<br>We deliver outcomes.</p>
+        <p class="statement-center">&Lambda;VOI doesn't promise features.<br>We deliver outcomes.</p>
     </section>
 
     <!-- Process Timeline -->
@@ -302,6 +304,7 @@
             <h2 class="section-title-center">From Signature to Live in 6 Weeks</h2>
 
             <div class="process-timeline">
+                <div class="timeline-signal"></div>
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="process-dot">01</div>
@@ -341,32 +344,29 @@
     <!-- Grand Finale: The ROI Engine -->
     <section class="section-finale" id="contact">
         <div class="finale-container">
-            <div class="finale-grid">
-                <!-- Left: Pricing Logic (ROI) -->
-                <div class="finale-logic">
-                    <h2 class="finale-headline">Capacity,<br>Not Complexity.</h2>
-                    <p class="finale-subhead">Pay for volume. Scale instantly. No hidden fees.</p>
-                    <div class="roi-list">
-                        <div class="roi-item">
-                            <span class="roi-icon">✓</span>
-                            <span>Zero setup fees</span>
-                        </div>
-                        <div class="roi-item">
-                            <span class="roi-icon">✓</span>
-                            <span>No maintenance costs</span>
-                        </div>
-                        <div class="roi-item">
-                            <span class="roi-icon">✓</span>
-                            <span>Unlimited concurrent calls</span>
-                        </div>
+            <div class="finale-content-center">
+                <h2 class="finale-headline">Capacity, Not Complexity.</h2>
+                <p class="finale-subhead">Pay for volume. Scale instantly. Uncapped architecture.</p>
+
+                <!-- New Industrial Tech Specs -->
+                <div class="tech-specs-container">
+                    <div class="tech-spec-box">
+                        <span class="spec-label">LATENCY</span>
+                        <span class="spec-value">&lt;50ms</span>
+                    </div>
+                    <div class="tech-spec-box">
+                        <span class="spec-label">CONCURRENCY</span>
+                        <span class="spec-value">UNLIMITED</span>
+                    </div>
+                    <div class="tech-spec-box">
+                        <span class="spec-label">UPTIME</span>
+                        <span class="spec-value">99.99%</span>
                     </div>
                 </div>
 
-                <!-- Right: Action (Deploy) -->
-                <div class="finale-action">
-                    <div class="deployment-status">Deployment Team: Standby</div>
-                    <a href="mailto:hello@avoi.com" class="btn-primary-large">Book Discovery Call</a>
-                    <p class="action-note">Ready to eliminate missed conversations?</p>
+                <div class="finale-action-center">
+                    <div class="deployment-status">SYSTEM STATUS: READY</div>
+                    <a href="booking.html" class="btn-primary-large">DEPLOY AGENTS</a>
                 </div>
             </div>
         </div>
@@ -385,7 +385,7 @@
             <div class="footer-main-grid">
                 <!-- Brand Column -->
                 <div class="footer-brand-section">
-                    <h2 class="footer-giant-logo">AVOI</h2>
+                    <h2 class="footer-giant-logo">&Lambda;VOI</h2>
                     <p class="footer-tagline">Agentic Voice Operations Infrastructure</p>
                 </div>
 
@@ -406,15 +406,14 @@
                     </div>
                     <div class="footer-col">
                         <h4>Connect</h4>
-                        <a href="mailto:deploy@avoi.com">deploy@avoi.com</a>
-                        <a href="#">Twitter/X</a>
-                        <a href="#">LinkedIn</a>
+                        <a href="mailto:Contact@avoi.in">Contact@avoi.in</a>
+                        <a href="https://www.linkedin.com/company/avoi-io/">LinkedIn</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom-bar">
-                <span class="copyright">© 2026 AVOI SYSTEMS. ALL RIGHTS RESERVED.</span>
+                <span class="copyright">© 2026 &Lambda;VOI SYSTEMS. ALL RIGHTS RESERVED.</span>
                 <span class="server-time">SERVER TIME: <span id="footer-time">UTC</span></span>
             </div>
         </div>
