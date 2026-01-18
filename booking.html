@@ -182,7 +182,7 @@
         </div>
 
         <div class="form-wrapper">
-            <form action="mailto:Contact@avoi.in" method="POST" enctype="text/plain">
+            <form id="contactForm">
                 <div class="form-group">
                     <label for="name" class="form-label">Identity // Name</label>
                     <input type="text" id="name" name="name" class="form-input" required autocomplete="off">
@@ -216,8 +216,19 @@
 
     <script src="script.js"></script>
     <script>
-        // Optional: Add simple glitch effect or sound on focus?
-        // Keeping it clean for now.
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const org = document.getElementById('org').value;
+            const message = document.getElementById('message').value;
+
+            const subject = `AVOI Deployment Request: ${org}`;
+            const body = `IDENTITY: ${name}%0D%0ACOMMS: ${email}%0D%0AENTITY: ${org}%0D%0A%0D%0APARAMETERS:%0D%0A${message}`;
+
+            window.location.href = `mailto:Contact@avoi.in?subject=${encodeURIComponent(subject)}&body=${body}`;
+        });
     </script>
 </body>
 
